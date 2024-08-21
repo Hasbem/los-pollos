@@ -1,58 +1,53 @@
 export const categories = [
   {
+    text: "Tous",
+  },
+  {
+    text: "Nos poulets",
+  },
+  {
+    text: "Accompagnements",
+  },
+  {
+    text: "Boissons",
+  },
+];
+
+export const menus = [
+  {
     text: "Poulet braisé entier",
     img: require("@/assets/data/c1.png"),
+    categorie: "poulet",
   },
   {
     text: "Cuisse de poulet braisé",
     img: require("@/assets/data/c2.png"),
+    categorie: "accompagnement",
   },
   {
     text: "Frites",
     img: require("@/assets/data/c3.png"),
+    categorie: "accompagnement",
   },
   {
     text: "Pain baguette",
     img: require("@/assets/data/c4.png"),
+    categorie: "accompagnement",
   },
   {
-    text: "HOP",
-    img: require("@/assets/data/c5.png"),
+    text: "Oasis",
+    categorie: "boisson",
   },
   {
-    text: "Pharmacy",
-    img: require("@/assets/data/c6.png"),
-  },
-];
-
-export const restaurants = [
-  {
-    name: "Vapiano",
-    rating: "4.5 Excellent",
-    ratings: "(500+)",
-    distance: "0.7 miles away",
-    img: require("@/assets/data/r1.jpeg"),
-    tags: ["Italian", "Pizza", "Pasta", "Salads"],
-    duration: "35 - 45",
+    text: "Coca-Cola",
+    categorie: "boisson",
   },
   {
-    name: "✨Urban Greens✨",
-    id: "2",
-    rating: "4.9 Excellent",
-    ratings: "(500+)",
-    distance: "1.7 miles away",
-    img: require("@/assets/data/r2.jpeg"),
-    tags: ["Salads", "Vegan", "Healthy", "British"],
-    duration: "15 - 30",
+    text: "Orangina",
+    categorie: "boisson",
   },
   {
-    name: "El Minero",
-    id: "3",
-    rating: "4.5 Excellent",
-    ratings: "(500+)",
-    distance: "3 miles away",
-    img: require("@/assets/data/r3.jpeg"),
-    tags: ["Spanish", "Salads", "Tpas", "Pasta"],
-    duration: "25 - 45",
+    text: "az",
+    categorie: "boisson",
   },
 ];
