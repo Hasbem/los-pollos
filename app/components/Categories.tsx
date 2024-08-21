@@ -5,10 +5,14 @@ import tw from "twrnc";
 
 export default function Categories() {
   return (
-    <ScrollView horizontal showsHorizontalScrollIndicator={false}>
+    <ScrollView
+      style={tw`bg-neutral-300 rounded-md w-96 self-center`}
+      horizontal
+      showsHorizontalScrollIndicator={false}
+    >
       {categories.map((category, index) => (
         <View
-          style={tw`w-32 h-6  bg-white m-3 rounded-md items-center justify-center`}
+          style={tw`w-32 h-6 bg-white m-3 rounded-md items-center justify-center`}
           key={index}
         >
           <Text style={tw`text-center font-bold text-xs`}>{category.text}</Text>

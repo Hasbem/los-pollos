@@ -6,16 +6,19 @@ import Details from "./components/Details";
 
 const Page = () => {
   return (
-    <SafeAreaView style={tw`top-8 `}>
-      <ScrollView style={tw`bg-neutral-200`}>
+    <SafeAreaView style={tw`flex-1 top-2`}>
+      <View>
         <Categories />
+      </View>
+      <ScrollView
+        contentContainerStyle={tw`pb-8`}
+        showsVerticalScrollIndicator={false}
+      >
         <Text style={tw`text-lg font-bold mb-4 pt-2 px-4`}>
           Découvrez nos produits
         </Text>
-      </ScrollView>
-      <View style={tw`top-8`}>
         <Details />
-      </View>
+      </ScrollView>
     </SafeAreaView>
   );
 };
