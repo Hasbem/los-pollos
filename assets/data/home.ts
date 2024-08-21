@@ -4,12 +4,15 @@ export const categories = [
   },
   {
     text: "Nos poulets",
+    id: "poulet",
   },
   {
     text: "Accompagnements",
+    id: "accompagnement",
   },
   {
     text: "Boissons",
+    id: "boisson",
   },
 ];
 
@@ -17,37 +20,37 @@ export const menus = [
   {
     text: "Poulet braisé entier",
     img: require("@/assets/data/c1.png"),
-    categorie: "poulet",
+    id: "poulet",
   },
   {
     text: "Cuisse de poulet braisé",
     img: require("@/assets/data/c2.png"),
-    categorie: "accompagnement",
+    id: "poulet",
   },
   {
     text: "Frites",
     img: require("@/assets/data/c3.png"),
-    categorie: "accompagnement",
+    id: "accompagnement",
   },
   {
     text: "Pain baguette",
     img: require("@/assets/data/c4.png"),
-    categorie: "accompagnement",
+    id: "accompagnement",
   },
   {
     text: "Oasis",
-    categorie: "boisson",
+    id: "boisson",
   },
   {
     text: "Coca-Cola",
-    categorie: "boisson",
+    id: "boisson",
   },
   {
     text: "Orangina",
-    categorie: "boisson",
+    id: "boisson",
   },
   {
     text: "az",
-    categorie: "boisson",
+    id: "boisson",
   },
 ];
