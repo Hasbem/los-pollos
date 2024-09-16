@@ -1,16 +1,17 @@
-// Load environment variables from .env file
 require("dotenv").config();
+const express = require("express");
+
+const app = express();
+const router = require("./app/routers/api/router");
 
 // Check database connection
-// Note: This is optional and can be removed if the database connection
-// is not required when starting the application
 require("./database/client").checkConnection();
 
-// Import the Express application from app/config.js
-const app = require("./app/config");
+app.use(express.json()); // Pour parser les corps de requêtes JSON
+app.use("/", router); // Utilisez le routeur
 
 // Get the port from the environment variables
-const port = process.env.APP_PORT;
+const port = process.env.APP_PORT || 3310; // Définir un port par défaut si APP_PORT n'est pas défini
 
 // Start the server and listen on the specified port
 app
