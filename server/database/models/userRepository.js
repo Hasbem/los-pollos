@@ -1,4 +1,4 @@
-const AbstractRepository = require("./AbstractRepository");
+import AbstractRepository from "./AbstractRepository.js";
 
 class UserRepository extends AbstractRepository {
   constructor() {
@@ -41,10 +41,10 @@ class UserRepository extends AbstractRepository {
     }
   }
 
-  async insert(users) {
-    const { name, email, hashedPassword } = users;
+  async insert(user) {
+    const { name, email, hashedPassword } = user;
     const query =
-      "INSERT INTO user (name, email, hashedPassword) VALUES (?, ?, ?)";
+      "INSERT INTO users (name, email, hashedPassword) VALUES (?, ?, ?)";
     const values = [name, email, hashedPassword];
 
     const [result] = await this.database.query(query, values);
@@ -52,9 +52,8 @@ class UserRepository extends AbstractRepository {
   }
 
   async delete(userId) {
-    // Execute the SQL DELETE query to retrieve a specific data by its ID
     const [result] = await this.database.query(
-      `delete from ${this.table} where id = ?`,
+      `DELETE FROM ${this.table} WHERE id = ?`,
       [userId]
     );
 
@@ -62,4 +61,4 @@ class UserRepository extends AbstractRepository {
   }
 }
 
-module.exports = UserRepository;
+export default UserRepository;

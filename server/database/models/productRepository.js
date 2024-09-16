@@ -1,4 +1,4 @@
-const AbstractRepository = require("./AbstractRepository");
+import AbstractRepository from "./AbstractRepository.js";
 
 class ProductRepository extends AbstractRepository {
   constructor() {
@@ -16,4 +16,4 @@ class ProductRepository extends AbstractRepository {
   }
 }
 
-module.exports = ProductRepository;
+export default ProductRepository;

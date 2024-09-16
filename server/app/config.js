@@ -1,6 +1,7 @@
 // Load the express module to create a web application
 
-const express = require("express");
+// eslint-disable-next-line import/no-import-module-exports
+import express from "express";
 
 const app = express();
 

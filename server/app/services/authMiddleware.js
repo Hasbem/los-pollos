@@ -1,7 +1,6 @@
-/* eslint-disable consistent-return */
-const argon2 = require("argon2");
-const jwt = require("jsonwebtoken");
-const tables = require("../../database/tables");
+import argon2 from "argon2";
+import jwt from "jsonwebtoken";
+import tables from "../../database/tables.js"; // Assurez-vous que le chemin est correct
 
 const hashingOptions = {
   type: argon2.argon2id,
@@ -10,9 +9,9 @@ const hashingOptions = {
   parallelism: 1,
 };
 
-const verifyToken = (req, res, next) => {
+export const verifyToken = (req, res, next) => {
   try {
-    const token = req.cookie?.auth_token;
+    const token = req.cookies?.auth_token; // Utilisez req.cookies pour accéder aux cookies
     if (!token) {
       console.error("No auth token found");
       return res.sendStatus(401);
@@ -27,9 +26,9 @@ const verifyToken = (req, res, next) => {
   }
 };
 
-const getUserByEmail = async (req, res, next) => {
+export const getUserByEmail = async (req, res, next) => {
   try {
-    const user = await tables.user.readWithPassword(req.body.email);
+    const user = await tables.users.readWithPassword(req.body.email); // Utilisez `tables.users`
 
     if (!user) {
       return res.sendStatus(422);
@@ -42,7 +41,7 @@ const getUserByEmail = async (req, res, next) => {
   }
 };
 
-const hashPassword = async (req, res, next) => {
+export const hashPassword = async (req, res, next) => {
   try {
     const hashedPassword = await argon2.hash(req.body.password, hashingOptions);
     req.body.hashedPassword = hashedPassword;
@@ -55,5 +54,3 @@ const hashPassword = async (req, res, next) => {
     res.sendStatus(500);
   }
 };
-
-module.exports = { hashingOptions, getUserByEmail, verifyToken, hashPassword };

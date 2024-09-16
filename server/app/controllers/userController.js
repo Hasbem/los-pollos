@@ -1,6 +1,6 @@
-const tables = require("../../database/tables");
+import tables from "../../database/tables.js"; // Assure-toi que ce fichier est en ES module ou ajuste en conséquence
 
-const getUsers = async (req, res) => {
+export const getUsers = async (req, res) => {
   try {
     const users = await tables.users.getUsers();
     res.json(users);
@@ -10,7 +10,7 @@ const getUsers = async (req, res) => {
   }
 };
 
-const getUserById = async (req, res) => {
+export const getUserById = async (req, res) => {
   try {
     const userId = req.params.id;
     const user = await tables.users.getUserById(userId);
@@ -25,7 +25,7 @@ const getUserById = async (req, res) => {
   }
 };
 
-const deleteUser = async (req, res, next) => {
+export const deleteUser = async (req, res, next) => {
   try {
     const result = await tables.users.delete(req.params.id);
     if (result.affectedRows === 0) {
@@ -38,7 +38,7 @@ const deleteUser = async (req, res, next) => {
   }
 };
 
-const addUser = async (req, res) => {
+export const addUser = async (req, res) => {
   const user = req.body;
 
   if (typeof user !== "object" || user === null) {
@@ -60,5 +60,3 @@ const addUser = async (req, res) => {
     return res.sendStatus(500);
   }
 };
-
-module.exports = { getUserById, getUsers, addUser, deleteUser };

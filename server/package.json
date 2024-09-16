@@ -1,5 +1,6 @@
 {
   "name": "@harmonia/server",
+  "type": "module",
   "scripts": {
     "dev": "nodemon --ignore ./database/fixtures index.js",
     "db:migrate": "node ./bin/migrate.js",
@@ -10,6 +11,7 @@
   },
   "dependencies": {
     "argon2": "^0.41.1",
+    "dayjs": "^1.11.13",
     "dotenv": "^16.4.5",
     "express": "^4.19.2",
     "jsonwebtoken": "^9.0.2",

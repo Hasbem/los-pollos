@@ -1,4 +1,4 @@
-const tables = require("../../database/tables");
+import tables from "../../database/tables.js";
 
 const getProducts = async (req, res) => {
   try {
@@ -10,4 +10,4 @@ const getProducts = async (req, res) => {
   }
 };
 
-module.exports = { getProducts };
+export default getProducts;

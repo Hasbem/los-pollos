@@ -1,33 +1,36 @@
-const express = require("express");
-
-const productController = require("../../controllers/productController");
-const userController = require("../../controllers/userController");
-const authController = require("../../controllers/authController");
-const {
+import express from "express";
+import {
+  login,
+  loginSuccess,
+  logout,
+} from "../../controllers/authController.js";
+import getProducts from "../../controllers/productController.js";
+import {
+  addUser,
+  deleteUser,
+  getUserById,
+  getUsers,
+} from "../../controllers/userController.js";
+import {
   getUserByEmail,
   hashPassword,
   verifyToken,
-} = require("../../services/authMiddleware");
+} from "../../services/authMiddleware.js";
 
 const router = express.Router();
 
-/* ************************************************************************* */
-// Import And Use Routers Here
-/* ************************************************************************* */
-
 // Routes pour les produits
-router.get("/products", productController.getProducts);
+router.get("/products", getProducts);
 
 // Routes pour les utilisateurs
-router.post("/login", getUserByEmail, authController.login);
-router.post("/users", hashPassword, userController.addUser);
-router.get("/users", userController.getUsers);
-router.get("/users/:id", userController.getUserById);
+router.post("/login", getUserByEmail, login);
+router.post("/users", hashPassword, addUser);
+router.get("/users", getUsers);
+router.get("/users/:id", getUserById);
+router.delete("/users/:id", deleteUser); // Ajouter la route pour supprimer un utilisateur
 
 // Routes pour l'authentification
-router.get("/logout", verifyToken, authController.logout);
-router.get("/verify-auth", verifyToken, authController.loginSuccess);
+router.get("/logout", verifyToken, logout);
+router.get("/verify-auth", verifyToken, loginSuccess);
 
-/* ************************************************************************* */
-
-module.exports = router;
+export default router;
