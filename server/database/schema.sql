@@ -1,3 +1,7 @@
+CREATE DATABASE IF NOT EXISTS los_pollos_db;
+
+USE los_pollos_db;
+
 CREATE TABLE Utilisateurs (
     user_id INT PRIMARY KEY,
     nom VARCHAR(255),
@@ -11,7 +15,7 @@ CREATE TABLE Produits (
     nom VARCHAR(255),
     description TEXT,
     prix FLOAT,
-    disponibilité BOOLEAN,
+    disponibilité TINYINT(1),
     catégorie VARCHAR(255)
 );
 
