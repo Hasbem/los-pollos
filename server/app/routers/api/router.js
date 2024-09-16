@@ -1,5 +1,6 @@
 const express = require("express");
 
+const productController = require("../../controllers/productController");
 const userController = require("../../controllers/userController");
 const authController = require("../../controllers/authController");
 const {
@@ -14,8 +15,10 @@ const router = express.Router();
 // Import And Use Routers Here
 /* ************************************************************************* */
 
-// Routes pour les utilisateurs
+// Routes pour les produits
+router.get("/products", productController.getProducts);
 
+// Routes pour les utilisateurs
 router.post("/login", getUserByEmail, authController.login);
 router.post("/users", hashPassword, userController.addUser);
 router.get("/users", userController.getUsers);

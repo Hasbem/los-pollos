@@ -2,9 +2,7 @@ const tables = require("../../database/tables");
 
 const getUsers = async (req, res) => {
   try {
-    console.log("Requête reçue pour obtenir les utilisateurs");
     const users = await tables.users.getUsers();
-    console.log("Utilisateurs récupérés:", users);
     res.json(users);
   } catch (err) {
     console.error("Erreur lors de la récupération des utilisateurs:", err);

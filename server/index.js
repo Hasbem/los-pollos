@@ -7,11 +7,11 @@ const router = require("./app/routers/api/router");
 // Check database connection
 require("./database/client").checkConnection();
 
-app.use(express.json()); // Pour parser les corps de requêtes JSON
-app.use("/", router); // Utilisez le routeur
+app.use(express.json());
+app.use("/", router);
 
 // Get the port from the environment variables
-const port = process.env.APP_PORT || 3310; // Définir un port par défaut si APP_PORT n'est pas défini
+const port = process.env.APP_PORT || 3310;
 
 // Start the server and listen on the specified port
 app
