@@ -13,6 +13,13 @@
     ".expo/types/**/*.ts",
     "expo-env.d.ts",
     "app/_layout.jsx",
-    "app/index.jsx"
+    "app/index.jsx",
+    "components/Categories.jsx",
+    "components/Categories.jsx",
+    "components/Details.jsx",
+    "components/Categories.jsx",
+    "components/Categories.jsx",
+    "components/Details.jsx",
+    "screens/Home.jsx"
   ]
 }

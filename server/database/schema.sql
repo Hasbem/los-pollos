@@ -14,6 +14,7 @@ CREATE TABLE Products (
     product_id INT PRIMARY KEY,
     name VARCHAR(255),
     price FLOAT,
+    img VARCHAR(255),
     available TINYINT(1),
     category VARCHAR(255)
 );

@@ -1,12 +1,19 @@
 require("dotenv").config();
 const express = require("express");
+const cors = require("cors");
 
+const corsOptions = {
+  origin: "http://localhost:8081",
+  methods: ["GET", "POST", "PUT", "DELETE"],
+  allowedHeaders: ["Content-Type", "Autorization"],
+};
 const app = express();
 const router = require("./app/routers/api/router");
 
 // Check database connection
 require("./database/client").checkConnection();
 
+app.use(cors(corsOptions));
 app.use(express.json());
 app.use("/", router);
 
